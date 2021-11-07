@@ -74,7 +74,7 @@ img.facebook:hover {
 
 h2 {
     color:#b63514;
-    margin-left: 10%;
+    margin-left: 25%;
 }
 
 div form input {
@@ -85,7 +85,7 @@ div form input {
     color: white;
     margin-bottom: 5px;
     padding: 8px;
-    margin-left: 10%;
+    margin-left: 25%;
 }
 
 div form textarea {
@@ -96,17 +96,17 @@ div form textarea {
     color: white;
     margin-bottom: 5px;
     padding: 8px;
-    margin-left: 10%;
+    margin-left: 25%;
 }
 
 div form p {
     color: lightgrey;
     padding: 8px;
-    margin-left: 10%;
+    margin-left: 25%;
 }
 
 button {
     background-color: lightgrey;
     color: white;
-    margin-left: 10%;
+    margin-left: 25%;
 }
