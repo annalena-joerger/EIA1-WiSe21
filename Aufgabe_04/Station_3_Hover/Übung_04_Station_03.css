@@ -1,0 +1,62 @@
+html {
+    background-image: url(images/bg.png);
+    background-repeat: repeat;
+}
+
+body {
+    text-align: left;
+}
+
+#Karte {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.h1 {
+    color: white;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+
+.Stern1 {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+}
+
+.Stern1:hover {
+    content: url("images/stern_hover.png");
+}
+
+.Stern2 {
+    position: absolute;
+    top: 35%;
+    left: 27%;
+}
+
+.Stern2:hover {
+    content: url("images/stern_hover.png");
+}
+
+.Stern3 {
+    position: absolute;
+    top: 70%;
+    left: 46%;
+}
+
+.Stern3:hover {
+    content: url("images/stern_hover.png");
+}
+
+.Stern4 {
+    position: absolute;
+    top: 47%;
+    left: 70%;
+}
+
+.Stern4:hover {
+    content: url("images/stern_hover.png");
+}

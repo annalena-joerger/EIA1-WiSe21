@@ -1,0 +1,42 @@
+html {
+    background-image: url(images/bg.png);
+    background-repeat: repeat;
+}
+
+body {
+    text-align: left;
+}
+
+#Karte {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.busch {
+    position: absolute;
+    left: -10%;
+    top: -15%;
+    z-index: 1;
+}
+
+.pinguin {
+    position: absolute;
+    left: 77%;
+    top: 55%;
+}
+
+.h1 {
+    color: white;
+    position: absolute;
+    left: 12%;
+    top: 10%;
+}
+
+.p {
+    color: white;
+    position: absolute;
+    left: 12%;
+    top: 35%;
+}

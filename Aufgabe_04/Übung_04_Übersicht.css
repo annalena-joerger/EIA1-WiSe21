@@ -1,0 +1,65 @@
+html {
+    font-family: sans-serif;
+    background-image: url("wood.jpg");
+    font-size: larger;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.Station1 {
+    background-color:darkred;
+    text-align: center;
+    width: 20%;
+    position: absolute;
+    left: 70%;
+    top: 5%;
+    text-decoration: none;
+    padding: 10px 2px 10px 2px;
+}
+
+.Station3 {
+    background-color:darkred;
+    text-align: center;
+    width: 20%;
+    position: absolute;
+    left: 70%;
+    top: 20%;
+    text-decoration: none;
+    padding: 10px 2px 10px 2px;
+}
+
+.Station5 {
+    background-color:darkred;
+    text-align: center;
+    width: 20%;
+    position: absolute;
+    left: 70%;
+    top: 35%;
+    text-decoration: none;
+    padding: 10px 2px 10px 2px;
+}
+
+.Station8 {
+    background-color:darkred;
+    text-align: center;
+    width: 20%;
+    position: absolute;
+    left: 70%;
+    top: 50%;
+    text-decoration: none;
+    padding: 10px 2px 10px 2px;
+}
+
+.Station9 {
+    background-color:darkred;
+    text-align: center;
+    width: 20%;
+    position: absolute;
+    left: 70%;
+    top: 65%;
+    text-decoration: none;
+    padding: 10px 2px 10px 2px;
+}

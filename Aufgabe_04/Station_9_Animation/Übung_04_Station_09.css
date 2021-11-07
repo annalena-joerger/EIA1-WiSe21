@@ -1,0 +1,72 @@
+html {
+    background-image: url(images/bg.png);
+    background-repeat: repeat;
+}
+
+body {
+    text-align: left;
+}
+
+#Karte {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.h1 {
+    color: white;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    padding-bottom: 2%;
+}
+
+.p {
+    color: white;
+    position: absolute;
+    top: 40%;
+    left: 10%;
+}
+
+.Banderole {
+    position: absolute;
+    left: 62%;
+    top: 70%;
+}
+
+.Schneeflocke1 {
+    animation: fall 4s infinite ease-in-out;
+    position: absolute;
+    left: 20%;
+    top: 23%;
+}
+
+@keyframes fall {
+    0% {top:23%;}
+    100% {top:76%;}
+}
+
+.Schneeflocke2 {
+    animation: fall 3s infinite ease-in-out;
+    position: absolute;
+    left: 40%;
+    top: 23%;
+}
+
+@keyframes fall {
+    0% {top:23%;}
+    100% {top:73%;}
+}
+
+.Schneeflocke3 {
+    animation: fall 3s infinite ease-in-out;
+    position: absolute;
+    left: 70%;
+    top: 23%;
+}
+
+@keyframes fall {
+    0% {top:23%;}
+    100% {top:73%;}
+}

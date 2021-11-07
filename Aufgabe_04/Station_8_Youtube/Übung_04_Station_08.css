@@ -1,0 +1,23 @@
+html {
+    background-image: url(images/bg.png);
+    background-repeat: repeat;
+}
+
+#Karte {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Video {
+    position: absolute;
+    left: 3.5%;
+    top: 10.5%;   
+}
+
+.Schleife {
+    position: absolute;
+    margin-left: 62%;
+    margin-top: -20%;
+}
