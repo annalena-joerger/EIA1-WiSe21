@@ -51,67 +51,22 @@ var L06;
     var au2 = ((100 / Australia_2008) * Australia_2018) - 100;
     var au3 = Australia_2018 - Australia_2008;
     /*Rechnungen für Kontinente*/
-    function AF(LandAF, Africa_2018, Africa_2008) {
-        document.querySelector(".namekontinent").innerHTML = LandAF;
-        document.querySelector(".absolute").innerHTML = LandAF;
-        document.querySelector(".emissionabsolute").innerHTML = Africa_2018.toFixed(2);
-        document.querySelector(".emissionrelative").innerHTML = (Africa_2018 / Welt_2018 * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateinpercent").innerHTML = ((Africa_2018 / Africa_2008 - 1) * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateabsolute").innerHTML = (Africa_2018 - Africa_2008).toFixed(2);
-        document.querySelector(".Balkendiagramm").style.height = (Africa_2018 / Welt_2018 * 100) + "%";
-    }
-    function EU(LandEU, Europe_2018, Europe_2008) {
-        document.querySelector(".namekontinent").innerHTML = LandEU;
-        document.querySelector(".absolute").innerHTML = LandEU;
-        document.querySelector(".emissionabsolute").innerHTML = Europe_2018.toFixed(2);
-        document.querySelector(".emissionrelative").innerHTML = (Europe_2018 / Welt_2018 * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateinpercent").innerHTML = ((Europe_2018 / Europe_2008 - 1) * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateabsolute").innerHTML = (Europe_2018 - Europe_2008).toFixed(2);
-        document.querySelector(".Balkendiagramm").style.height = (Europe_2018 / Welt_2018 * 100) + "%";
-    }
-    function NA(LandNA, NorthAmerica_2018, NorthAmerica_2008) {
-        document.querySelector(".namekontinent").innerHTML = LandNA;
-        document.querySelector(".absolute").innerHTML = LandNA;
-        document.querySelector(".emissionabsolute").innerHTML = NorthAmerica_2018.toFixed(2);
-        document.querySelector(".emissionrelative").innerHTML = (NorthAmerica_2018 / Welt_2018 * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateinpercent").innerHTML = ((NorthAmerica_2018 / NorthAmerica_2008 - 1) * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateabsolute").innerHTML = (NorthAmerica_2018 - NorthAmerica_2008).toFixed(2);
-        document.querySelector(".Balkendiagramm").style.height = (NorthAmerica_2018 / Welt_2018 * 100) + "%";
-    }
-    function SA(LandSA, SouthAmerica_2018, SouthAmerica_2008) {
-        document.querySelector(".namekontinent").innerHTML = LandSA;
-        document.querySelector(".absolute").innerHTML = LandSA;
-        document.querySelector(".emissionabsolute").innerHTML = SouthAmerica_2018.toFixed(2);
-        document.querySelector(".emissionrelative").innerHTML = (SouthAmerica_2018 / Welt_2018 * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateinpercent").innerHTML = ((SouthAmerica_2018 / SouthAmerica_2008 - 1) * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateabsolute").innerHTML = (SouthAmerica_2018 - SouthAmerica_2008).toFixed(2);
-        document.querySelector(".Balkendiagramm").style.height = (SouthAmerica_2018 / Welt_2018 * 100) + "%";
-    }
-    function AS(LandAS, Asia_2018, Asia_2008) {
-        document.querySelector(".namekontinent").innerHTML = LandAS;
-        document.querySelector(".absolute").innerHTML = LandAS;
-        document.querySelector(".emissionabsolute").innerHTML = Asia_2018.toFixed(2);
-        document.querySelector(".emissionrelative").innerHTML = (Asia_2018 / Welt_2018 * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateinpercent").innerHTML = ((Asia_2018 / Asia_2008 - 1) * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateabsolute").innerHTML = (Asia_2018 - Asia_2008).toFixed(2);
-        document.querySelector(".Balkendiagramm").style.height = (Asia_2018 / Welt_2018 * 100) + "%";
-    }
-    function AU(LandAU, Australia_2018, Australia_2008) {
-        document.querySelector(".namekontinent").innerHTML = LandAU;
-        document.querySelector(".absolute").innerHTML = LandAU;
-        document.querySelector(".emissionabsolute").innerHTML = Australia_2018.toFixed(2);
-        document.querySelector(".emissionrelative").innerHTML = (Australia_2018 / Welt_2018 * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateinpercent").innerHTML = ((Australia_2018 / Australia_2008 - 1) * 100).toFixed(2) + "%";
-        document.querySelector(".growthrateabsolute").innerHTML = (Australia_2018 - Australia_2008).toFixed(2);
-        document.querySelector(".Balkendiagramm").style.height = (Australia_2018 / Welt_2018 * 100) + "%";
+    function Kontinent(Land, Land_2018, Land_2008) {
+        document.querySelector(".namekontinent").innerHTML = Land;
+        document.querySelector(".absolute").innerHTML = Land;
+        document.querySelector(".emissionabsolute").innerHTML = Land_2018.toFixed(2);
+        document.querySelector(".emissionrelative").innerHTML = (Land_2018 / Welt_2018 * 100).toFixed(2) + "%";
+        document.querySelector(".growthrateinpercent").innerHTML = ((Land_2018 / Land_2008 - 1) * 100).toFixed(2) + "%";
+        document.querySelector(".growthrateabsolute").innerHTML = (Land_2018 - Land_2008).toFixed(2);
+        document.querySelector(".Balkendiagramm").style.height = (Land_2018 / Welt_2018 * 100) + "%";
     }
     window.addEventListener("load", function () {
-        document.querySelector(".europe").addEventListener("click", function () { EU(LandEU, Europe_2018, Europe_2008); });
-        document.querySelector(".northamerica").addEventListener("click", function () { NA(LandNA, NorthAmerica_2018, NorthAmerica_2008); });
-        document.querySelector(".southamerica").addEventListener("click", function () { SA(LandSA, SouthAmerica_2018, SouthAmerica_2008); });
-        document.querySelector(".africa").addEventListener("click", function () { AF(LandAF, Africa_2018, Africa_2008); });
-        document.querySelector(".asia").addEventListener("click", function () { AS(LandAS, Asia_2018, Asia_2008); });
-        document.querySelector(".australia").addEventListener("click", function () { AU(LandAU, Australia_2018, Australia_2008); });
+        document.querySelector(".europe").addEventListener("click", function () { Kontinent(LandEU, Europe_2018, Europe_2008); });
+        document.querySelector(".northamerica").addEventListener("click", function () { Kontinent(LandNA, NorthAmerica_2018, NorthAmerica_2008); });
+        document.querySelector(".southamerica").addEventListener("click", function () { Kontinent(LandSA, SouthAmerica_2018, SouthAmerica_2008); });
+        document.querySelector(".africa").addEventListener("click", function () { Kontinent(LandAF, Africa_2018, Africa_2008); });
+        document.querySelector(".asia").addEventListener("click", function () { Kontinent(LandAS, Asia_2018, Asia_2008); });
+        document.querySelector(".australia").addEventListener("click", function () { Kontinent(LandAU, Australia_2018, Australia_2008); });
     });
 })(L06 || (L06 = {}));
 //# sourceMappingURL=script.js.map
