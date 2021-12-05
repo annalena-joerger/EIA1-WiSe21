@@ -83,6 +83,7 @@ function deletebutton (): void {
   document.getElementById("trash").classList.contains("fa-trash-alt");
   clearInterval(interval);
   clearInterval(remix);
+  TON.length = 0;
 }
 
 

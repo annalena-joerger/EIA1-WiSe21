@@ -55,9 +55,9 @@ var L07;
         function REMIX() {
             remix = setInterval(playRemix, 700);
             function playRemix() {
-                for (var a1 = 0; a1 < 4; a1++) {
-                    var a2 = Math.floor(Math.random() * 9);
-                    playSample(TON[a2]);
+                for (var i1 = 0; i1 < 4; i1++) {
+                    var i2 = Math.floor(Math.random() * 9);
+                    playSample(TON[i2]);
                 }
             }
         }
@@ -66,6 +66,7 @@ var L07;
             document.getElementById("trash").classList.contains("fa-trash-alt");
             clearInterval(interval);
             clearInterval(remix);
+            TON.length = 0;
         }
         /*Bonusaufgabe Aufgabe 7: Verlinkung Sounds zu Tastatur*/
         document.addEventListener("keydown", function (tastatur) {
@@ -96,27 +97,6 @@ var L07;
             else if (tastatur.key == "9") {
                 playSample(TON[8]);
             }
-            /*Sound/Beat Playbutton*/ /*
-              document.querySelector(".fa-play-circle").addEventListener("click", function Playbutton(): void {
-            
-              setInterval (function(): void {playBeat(BEAT[0]); }, 500);
-              setInterval (function(): void {playBeat(BEAT[1]); }, 750);
-              setInterval (function(): void {playBeat(BEAT[2]); }, 250);
-            }); });
-            */
-            /*
-            function changeButton() {
-            
-                    if (document.getElementById(".fa-play-circle");
-                    {
-                        document.getElementById(".fa-stop-circle");
-                    }
-                    else
-                    {
-                        document.getElementById (".fa-play-circle");
-                    }
-                }
-            */
         });
     });
 })(L07 || (L07 = {}));
