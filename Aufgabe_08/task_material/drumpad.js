@@ -4,7 +4,7 @@ var L07;
     var TON = [("./assets/A.mp3"), ("./assets/C.mp3"), ("./assets/F.mp3"), ("./assets/G.mp3"),
         ("./assets/hihat.mp3"), ("./assets/kick.mp3"), ("./assets/laugh-1.mp3"), ("./assets/laugh-2.mp3"),
         ("./assets/snare.mp3")];
-    var BEAT = [("./assets/hihat.mp3"), ("./assets/kick.mp3"), ("./assets/snare.mp3")];
+    var BEAT = [TON[4], TON[5], TON[8]];
     var remix;
     var interval;
     var index = 0;
@@ -53,10 +53,10 @@ var L07;
         }
         /*Funktion für Remix: alle 9 Sounds werden zufällig abgespielt*/
         function REMIX() {
-            remix = setInterval(playRemix, 700);
+            remix = setInterval(playRemix, 300);
             function playRemix() {
-                for (var i1 = 0; i1 < 4; i1++) {
-                    var i2 = Math.floor(Math.random() * 9);
+                for (var i1 = 0; i1 < 1; i1++) {
+                    var i2 = Math.floor(Math.random() * 6);
                     playSample(TON[i2]);
                 }
             }
@@ -66,7 +66,6 @@ var L07;
             document.getElementById("trash").classList.contains("fa-trash-alt");
             clearInterval(interval);
             clearInterval(remix);
-            TON.length = 0;
         }
         /*Bonusaufgabe Aufgabe 7: Verlinkung Sounds zu Tastatur*/
         document.addEventListener("keydown", function (tastatur) {

@@ -5,7 +5,7 @@ var TON: string [] = [("./assets/A.mp3"), ("./assets/C.mp3"), ("./assets/F.mp3")
 ("./assets/hihat.mp3"), ("./assets/kick.mp3"), ("./assets/laugh-1.mp3"), ("./assets/laugh-2.mp3"), 
 ("./assets/snare.mp3")];
 
-var BEAT: string [] = [("./assets/hihat.mp3"), ("./assets/kick.mp3"), ("./assets/snare.mp3")];
+var BEAT: string [] = [TON [4], TON [5], TON [8]];
 
 var remix:  number;
 var interval: number;
@@ -67,10 +67,10 @@ function tonbeat(): void {
 
 /*Funktion für Remix: alle 9 Sounds werden zufällig abgespielt*/
 function REMIX (): void {
-  remix = setInterval(playRemix, 700);
+  remix = setInterval(playRemix, 300);
   function playRemix(): void {
-      for (var i1: number = 0; i1 < 4; i1++) {
-        var i2: number = Math.floor(Math.random() * 9);
+      for (var i1: number = 0; i1 < 1; i1++) {
+        var i2: number = Math.floor(Math.random() * 6);
         playSample (TON[i2]);
     }
   }
@@ -83,7 +83,6 @@ function deletebutton (): void {
   document.getElementById("trash").classList.contains("fa-trash-alt");
   clearInterval(interval);
   clearInterval(remix);
-  TON.length = 0;
 }
 
 
