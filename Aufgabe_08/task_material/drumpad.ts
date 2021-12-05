@@ -65,7 +65,7 @@ function tonbeat(): void {
 }
 
 
-/*Funktion für Remix: alle 9 Sounds werden zufällig abgespielt*/
+/*Funktion für Remix*/
 function REMIX (): void {
   remix = setInterval(playRemix, 300);
   function playRemix(): void {
