@@ -7,9 +7,10 @@ var TON: string [] = [("./assets/A.mp3"), ("./assets/C.mp3"), ("./assets/F.mp3")
 
 var BEAT: string [] = [TON [4], TON [5], TON [8]];
 
-var remix:  number;
-var interval: number;
 var index: number = 0;
+var beatremix: number;
+var interval: number = 0;
+
 
 window.addEventListener ("load", function (): void {
 
@@ -24,12 +25,12 @@ document.querySelector(".Box6").addEventListener("click", function(): void {play
 document.querySelector(".Box7").addEventListener("click", function(): void {playSample(TON[6]); });
 document.querySelector(".Box8").addEventListener("click", function(): void {playSample(TON[7]); });
 document.querySelector(".Box9").addEventListener("click", function(): void {playSample(TON[8]); });
-document.querySelector(".fa-play-circle").addEventListener("click", function(): void {playBeat(BEAT[0]); });
-document.querySelector(".fa-play-circle").addEventListener("click", function(): void {playBeat(BEAT[1]); });
-document.querySelector(".fa-play-circle").addEventListener("click", function(): void {playBeat(BEAT[2]); });
+document.querySelector("#play").addEventListener("click", function(): void {playBeat(BEAT[0]); });
+document.querySelector("#play").addEventListener("click", function(): void {playBeat(BEAT[1]); });
+document.querySelector("#play").addEventListener("click", function(): void {playBeat(BEAT[2]); }); 
 
-document.querySelector(".fa-random").addEventListener("click", REMIX);
-document.querySelector(".fa-trash-alt").addEventListener("click", deletebutton);
+document.querySelector("#random").addEventListener("click", REMIX);
+document.querySelector("#trash").addEventListener("click", deletebutton);
 
 
 
@@ -55,34 +56,47 @@ function playBeat(audio: string): void {
     document.getElementById("play").classList.add("fa-play-circle");
     clearInterval(interval);
 }
-}
 
-
-function tonbeat(): void {
+  function tonbeat(): void {
   playSample(BEAT[index]);
   index++;
-  if (index == 3) { index = 0; } 
+  if (index == 2) { index = 0; } 
+}
 }
 
 
-/*Funktion für Remix*/
+
 function REMIX (): void {
-  remix = setInterval(playRemix, 300);
-  function playRemix(): void {
-      for (var i1: number = 0; i1 < 1; i1++) {
-        var i2: number = Math.floor(Math.random() * 6);
-        playSample (TON[i2]);
-    }
+  
+  clearInterval (interval);
+  clearInterval(beatremix);
+
+  if (document.querySelector("#play").getAttribute("class") == "far fa-stop-circle") {
+      document.querySelector("#play").setAttribute("class", "far fa-play-circle");
   }
 
+  BEAT = [];
+  for (var r: number = 0; r < 5; r++) {
+    BEAT.push(TON[Math.ceil(Math.random() * 6)]);
+  }
+  beatremix = setInterval (playRemix, 300);
+
+  
+  function playRemix(): void {
+          playSample (BEAT[index]);
+          index++;
+          if (index == 6) { index = 0; }
+      }
 }
+
+
 
 
 /*Funktion für Delete-Button*/
 function deletebutton (): void {
   document.getElementById("trash").classList.contains("fa-trash-alt");
-  clearInterval(interval);
-  clearInterval(remix);
+  clearInterval(beatremix);
+  BEAT.length = 0;
 }
 
 

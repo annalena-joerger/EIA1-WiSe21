@@ -5,9 +5,9 @@ var L07;
         ("./assets/hihat.mp3"), ("./assets/kick.mp3"), ("./assets/laugh-1.mp3"), ("./assets/laugh-2.mp3"),
         ("./assets/snare.mp3")];
     var BEAT = [TON[4], TON[5], TON[8]];
-    var remix;
-    var interval;
     var index = 0;
+    var beatremix;
+    var interval = 0;
     window.addEventListener("load", function () {
         /*Sounds für Knöpfe*/
         document.querySelector(".Box1").addEventListener("click", function () { playSample(TON[0]); });
@@ -19,11 +19,11 @@ var L07;
         document.querySelector(".Box7").addEventListener("click", function () { playSample(TON[6]); });
         document.querySelector(".Box8").addEventListener("click", function () { playSample(TON[7]); });
         document.querySelector(".Box9").addEventListener("click", function () { playSample(TON[8]); });
-        document.querySelector(".fa-play-circle").addEventListener("click", function () { playBeat(BEAT[0]); });
-        document.querySelector(".fa-play-circle").addEventListener("click", function () { playBeat(BEAT[1]); });
-        document.querySelector(".fa-play-circle").addEventListener("click", function () { playBeat(BEAT[2]); });
-        document.querySelector(".fa-random").addEventListener("click", REMIX);
-        document.querySelector(".fa-trash-alt").addEventListener("click", deletebutton);
+        document.querySelector("#play").addEventListener("click", function () { playBeat(BEAT[0]); });
+        document.querySelector("#play").addEventListener("click", function () { playBeat(BEAT[1]); });
+        document.querySelector("#play").addEventListener("click", function () { playBeat(BEAT[2]); });
+        document.querySelector("#random").addEventListener("click", REMIX);
+        document.querySelector("#trash").addEventListener("click", deletebutton);
         /*Funktion Töne*/
         function playSample(audio) {
             var ton = new Audio(audio);
@@ -43,29 +43,38 @@ var L07;
                 document.getElementById("play").classList.add("fa-play-circle");
                 clearInterval(interval);
             }
-        }
-        function tonbeat() {
-            playSample(BEAT[index]);
-            index++;
-            if (index == 3) {
-                index = 0;
+            function tonbeat() {
+                playSample(BEAT[index]);
+                index++;
+                if (index == 2) {
+                    index = 0;
+                }
             }
         }
-        /*Funktion für Remix: alle 9 Sounds werden zufällig abgespielt*/
         function REMIX() {
-            remix = setInterval(playRemix, 300);
+            clearInterval(interval);
+            clearInterval(beatremix);
+            if (document.querySelector("#play").getAttribute("class") == "far fa-stop-circle") {
+                document.querySelector("#play").setAttribute("class", "far fa-play-circle");
+            }
+            BEAT = [];
+            for (var r = 0; r < 5; r++) {
+                BEAT.push(TON[Math.ceil(Math.random() * 6)]);
+            }
+            beatremix = setInterval(playRemix, 300);
             function playRemix() {
-                for (var i1 = 0; i1 < 1; i1++) {
-                    var i2 = Math.floor(Math.random() * 6);
-                    playSample(TON[i2]);
+                playSample(BEAT[index]);
+                index++;
+                if (index == 6) {
+                    index = 0;
                 }
             }
         }
         /*Funktion für Delete-Button*/
         function deletebutton() {
             document.getElementById("trash").classList.contains("fa-trash-alt");
-            clearInterval(interval);
-            clearInterval(remix);
+            clearInterval(beatremix);
+            BEAT.length = 0;
         }
         /*Bonusaufgabe Aufgabe 7: Verlinkung Sounds zu Tastatur*/
         document.addEventListener("keydown", function (tastatur) {
