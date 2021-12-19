@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todoliste.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script src="script.js" defer></script>
+    <script src="js/libs/artyom.window.min.js"></script>
+    <title>To Do-Liste</title>
+</head>
+<body>
+    <h1>To Do-Liste</h1>
+    <h2>
+        <span id="total">0</span> in total
+    </h2>  
+    <h3>
+        <span id="open">0</span> open
+    </h3> 
+    <h4>
+        <span id="done">0</span> done
+    </h4> 
+    <button id="spracheingabe">
+        Sag "erstelle Aufgabe"
+        <i class="fas fa-microphone"></i></button>
+    <div class="container">
+        <input id="eingabefeld" type="text" placeholder="Add new task">
+        <div class="to-dos" id="toDoContainer">
+        </div>
+    </div>
+</body>
+</html>

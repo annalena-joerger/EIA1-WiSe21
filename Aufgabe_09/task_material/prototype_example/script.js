@@ -40,6 +40,16 @@ var A09;
                     haken.style.opacity = "100%";
                 }
             });
+            /*
+            haken.addEventListener("click", erledigteToDos);
+            function erledigteToDos (): void {
+                    if (haken.getAttribute("class") == "far fa-check-circle") {
+                        haken.setAttribute("class", "far fa-circle"); }
+                    else {
+                        haken.setAttribute("class", "far fa-check-circle");
+                    }
+                }
+            */
         });
     });
 })(A09 || (A09 = {}));
