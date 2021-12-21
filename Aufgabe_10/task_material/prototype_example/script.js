@@ -3,11 +3,10 @@ var A09;
     window.addEventListener("load", function () {
         /*Deklaration der Variablen*/
         let toDoContainer = document.getElementById("toDoContainer");
-        let inputField = document.getElementById("eingabefeld");
+        let inputField = document.querySelector("#eingabefeld");
         let index = 0;
         let opentasks = 0;
         let donetasks = 0;
-        let textVonEingabefeld;
         const artyom = new Artyom();
         /*Funktion für den Zähler der gesamten To Do's*/
         function total() {
@@ -21,11 +20,6 @@ var A09;
         function done() {
             document.querySelector("#done").innerHTML = String(donetasks);
         }
-        /*Aufgabe wird durch Enter-Taste eingefügt*/
-        window.addEventListener("keydown", function (event) {
-            if (event.keyCode == 13)
-                addtodo();
-        });
         /*Spracheingabe Artyom*/
         artyom.addCommands({
             indexes: ["erstelle Aufgabe *"],
@@ -34,7 +28,58 @@ var A09;
             action: function (i, wildcard) {
                 /*Neues To Do wird erstellt, wenn man "erstelle Aufgabe ..." sagt*/
                 console.log("Erstellte Aufgabe: " + wildcard);
-                addtodo(wildcard);
+                let paragraph = document.createElement("p");
+                paragraph.classList.add("paragraph-styling");
+                paragraph.innerHTML = wildcard;
+                toDoContainer.appendChild(paragraph);
+                /*Zähler der gesamten Aufgabe und Zähler der offenen Aufgabe erhöht sich um eins*/
+                index++;
+                total();
+                opentasks++;
+                open();
+                /*Haken, um Aufgabe abzuhaken -je nachdem ändert sich Zähler von den offenen und beendeten Aufgaben*/
+                let haken = document.createElement("button");
+                haken.className = "far fa-circle";
+                toDoContainer.appendChild(haken);
+                haken.addEventListener("click", abgehakteToDos);
+                function abgehakteToDos() {
+                    if (haken.getAttribute("class") == "far fa-check-circle") {
+                        haken.setAttribute("class", "far fa-circle");
+                        opentasks++;
+                        open();
+                        donetasks--;
+                        done();
+                    }
+                    else {
+                        haken.setAttribute("class", "far fa-check-circle");
+                        opentasks--;
+                        open();
+                        donetasks++;
+                        done();
+                    }
+                }
+                /*Mülleimer, um Aufgabe zu löschen*/
+                let aufgabelöschen = document.createElement("button");
+                aufgabelöschen.setAttribute("class", "fas fa-trash-alt");
+                toDoContainer.appendChild(aufgabelöschen);
+                aufgabelöschen.addEventListener("click", deleteToDo);
+                /*Funktion, um Aufgabe bei Klick auf Mülleimer zu löschen*/
+                function deleteToDo() {
+                    toDoContainer.removeChild(aufgabelöschen);
+                    toDoContainer.removeChild(paragraph);
+                    toDoContainer.removeChild(haken);
+                    index--;
+                    total();
+                    /*Veränderung der Zähler, je nachdem ob Aufgabe beim löschen abgehakt ist oder nicht*/
+                    if (haken.getAttribute("class") == "far fa-check-circle") {
+                        donetasks--;
+                        done();
+                    }
+                    else {
+                        opentasks--;
+                        open();
+                    }
+                }
             }
         });
         function startContinuousArtyom() {
@@ -55,6 +100,17 @@ var A09;
         document.querySelector("#spracheingabe").addEventListener("click", function () {
             startContinuousArtyom();
         });
+        document.addEventListener("keydown", (event) => {
+            if (event.keyCode === 13) {
+                if (document.querySelector("input").value != "") {
+                    addtodo();
+                    document.querySelector("input").value = "";
+                }
+                else {
+                    alert("Add your new task!");
+                }
+            }
+        });
         function addtodo() {
             index++;
             total();
@@ -62,7 +118,6 @@ var A09;
             open();
             /*Textfelder für neue To Do's*/
             let paragraph = document.createElement("p");
-            paragraph.textContent = textVonEingabefeld;
             paragraph.classList.add("paragraph-styling");
             paragraph.innerText = inputField.value;
             toDoContainer.appendChild(paragraph);
@@ -76,8 +131,24 @@ var A09;
             toDoContainer.appendChild(aufgabelöschen);
             /*Eingabefeld leeren*/
             inputField.value = "";
-            /*Bei Klick auf Mülleimer wird Aufgabe von To Do-Liste gelöscht und im Zähler wird eine Aufgabe abgezogen*/
-            aufgabelöschen.addEventListener("click", function () { toDoContainer.removeChild(paragraph); toDoContainer.removeChild(haken); toDoContainer.removeChild(aufgabelöschen); index--; total(); donetasks--; done(); });
+            aufgabelöschen.addEventListener("click", deleteToDo);
+            /*Funktion, um Aufgabe bei Klick auf Mülleimer zu löschen*/
+            function deleteToDo() {
+                toDoContainer.removeChild(aufgabelöschen);
+                toDoContainer.removeChild(paragraph);
+                toDoContainer.removeChild(haken);
+                index--;
+                total();
+                /*Veränderung der Zähler, je nachdem ob Aufgabe beim löschen abgehakt ist oder nicht*/
+                if (haken.getAttribute("class") == "far fa-check-circle") {
+                    donetasks--;
+                    done();
+                }
+                else {
+                    opentasks--;
+                    open();
+                }
+            }
             /*Funktion, um To Dos abzuhaken. Der Zähler für offene und beendete Aufgaben ändert sich je nachdem, ob die Aufgabe abgehakt ist oder nicht*/
             haken.addEventListener("click", abgehakteToDos);
             function abgehakteToDos() {
